@@ -1,47 +1,50 @@
-import React from 'react';
-import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import AppBar from './AppBar';
+import Drawer from './Drawer';
+import News from './News';
+import Courses from './Courses';
+import Videos from './Videos';
+import Notifications from './Notifications';
+import Contact from './Contact';
+
+const style = {
+  margin: '8px',
+  marginTop: '70px'
+}
 
 const Home = () => (
   <div>Home</div>
 );
 
-const About = () => (
-  <div>About</div>
-);
+class App extends Component {
 
-class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-  handleClick() {
-    function onSuccess(imageURI) {
-        var image = document.getElementById('myImage');
-        image.src = imageURI;
+    this.state = {
+      isDrawerOpened: false
     }
+  }
 
-    function onFail(message) {
-        alert('Failed because: ' + message);
-    }
-
-    navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-        destinationType: Camera.DestinationType.FILE_URI });
-  };
-
+  toggleDrawer() {
+    this.setState({isDrawerOpened: !this.state.isDrawerOpened});
+  }
 
   render() {
     return (
-    <Router>
-        <div>
-          <h2>Welcome to Cordova and React</h2>
-          <ul>
-            <li><Link to={'/'}>Home</Link></li>
-            <li><Link to={'/about'}>About</Link></li>
-          </ul>
-          <button onClick={() => this.handleClick()} >Take Pic</button>
-          <img style={{width: '100%'}} src="" alt="" id="myImage"/>
-          <hr />
-          <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/about' component={About} />
-          </Switch>
+      <Router>
+        <div className="AppComponent">
+          <Drawer isDrawerOpened={this.state.isDrawerOpened} toggleDrawer={() => this.toggleDrawer()} />
+          <AppBar toggleDrawer={() => this.toggleDrawer()} />
+          <div style={style}>
+            <Route exact path='/' render={() => <Home />} />
+            <Route path='/notifications' render={() => <Notifications />} />
+            <Route path='/news' render={() => <News />} />
+            <Route path='/courses' render={() => <Courses />} />
+            <Route path='/videos' render={() => <Videos />} />
+            <Route path='/contact' render={() => <Contact />} />
+          </div>
         </div>
       </Router>
     );
