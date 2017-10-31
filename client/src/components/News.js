@@ -35,13 +35,15 @@ class NewsContainer extends React.Component {
     const limit = String(page*10)+',10';
     console.log('limit',limit);
 
-    axios.get('http://localhost:3000/api/news/recent/limit:'+limit+'/')
+    axios.get('/api/news/recent/limit:'+limit+'/')
       .then((response) => {
-        const news = [ ...this.state.news , ...response.data ];
-        const newsAdded = this.state.news.length < news.length;
-        this.setState({ news }, () => {
-          cb(newsAdded);
-        });
+        if(typeof response.data.status === 'undefined') {
+          const news = [ ...this.state.news , ...response.data ];
+          const newsAdded = this.state.news.length < news.length;
+          this.setState({ news }, () => {
+            cb(newsAdded);
+          });
+        }
       })
       .catch((error) => {
         console.log(error);

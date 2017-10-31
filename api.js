@@ -35,7 +35,7 @@ router.get('/news/*', (req, res) => {
   db.query('SELECT * FROM  `tbl_noticias` WHERE not_status=1 AND IdiomaID=1 '+aditionalQuery, function (err, rows, fields) {
     if (err) throw err
     res.send([].concat(rows));
-  })
+  });
 
 });
 

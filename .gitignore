@@ -1,7 +1,9 @@
 node_modules/
 config/config_dev.js
+config/config_prod.js
 client/build/
 client/node_modules/
 cordova/node_modules/
 cordova/platforms/
 cordova/plugins/
+manifest.yml

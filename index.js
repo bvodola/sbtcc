@@ -36,7 +36,7 @@ app.use('/api', api);
 // ===================
 // Production Settings
 // ===================
-if(app.settings.env == 'production') {
+if(app.settings.env == 'development') {
   app.use(express.static(path.join(__dirname, 'client/build')));
   app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));

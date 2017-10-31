@@ -1,0 +1,4 @@
+node_modules/
+config/config_dev.js
+client/node_modules/
+cordova/
