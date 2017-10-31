@@ -62,11 +62,9 @@ const CardItem = (props) => (
         </Typography>
       </CardContent>
 
-      {props.buttonText ?
+      {props.cardActions ?
         <CardActions>
-          <Button dense color="primary">
-            {props.buttonText}
-          </Button>
+          {props.cardActions}
         </CardActions>
       :''}
 

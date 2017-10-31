@@ -9,6 +9,7 @@
     "build:cordova": "webpack --config ./webpack.cordova.config.js --watch"
   },
   "dependencies": {
+    "axios": "^0.17.0",
     "babel-preset-stage-0": "^6.24.1",
     "material-ui": "next",
     "path": "^0.12.7",

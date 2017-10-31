@@ -12,7 +12,7 @@ const style = {
 }
 
 const getTitle = () => {
-  switch(window.location.pathname.split('/')[1].split('?')[0]) {
+  switch(window.location.hash.split('/')[1].split('?')[0]) {
     case 'news':
       return 'Notícias';
       break;
@@ -20,7 +20,7 @@ const getTitle = () => {
       return 'Notificações';
       break;
     case 'videos':
-      return 'Notificações';
+      return 'Vídeos';
       break;
     case 'courses':
       return 'Cursos';
