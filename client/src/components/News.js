@@ -60,6 +60,7 @@ class NewsContainer extends React.Component {
 };
 
 class News extends React.Component {
+
   constructor(props) {
     super(props);
 

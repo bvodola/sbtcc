@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('./database');
 
 router.get('/', (req, res) => {
-  res.send('This is it. API, baby!');
+  res.send('Welcome to the API.');
 });
 
 router.get('/news/*', (req, res) => {

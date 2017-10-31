@@ -1,11 +1,14 @@
 var mysql = require('mysql');
+var config = require('./config');
+var db = config.db;
+
 
 var connection = mysql.createConnection({
-  host     : 'dbmy0101.whservidor.com',
-  port     : '3306',
-  user     : 'sbtcc',
-  password : 'taraverde1958',
-  database : 'sbtcc'
+  host     : db.host,
+  port     : db.port,
+  user     : db.user,
+  password : db.password,
+  database : db.database
 });
 
 module.exports = connection;
